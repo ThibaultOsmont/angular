@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="product">
+<html ng-app="offer">
 	<head>
 		<title>Angular</title>
 
@@ -7,8 +7,14 @@
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	</head>
 	<body ng-controller="ProductListCtrlr">
-		<div style="height:500px"></div>
+		<div style="height:400px"></div>
 		<div class="container" class="form-group">
+			<div class="btn-group">
+				<button class="btn btn-primary" ng-click="changeLanguage('fr')">{{'TRANSLATE_FR' | translate}}</button>
+				<button class="btn btn-danger" ng-click="changeLanguage('en')">{{'TRANSLATE_EN' | translate}}</button>
+			</div>
+			<br/><br/>
+
 			<label for="range">Select your plan: </label>
 			<input id="range" ng-model="yourPlan" type="range" min="1" max="3" value="2" step="1" ng-init="yourPlan = 2"></input>
 		</div>	
@@ -19,14 +25,14 @@
 					<th colspan="4">Description</th>
 				</tr>
 				<tr>
-					<th>Plan selected</th>
-					<th>Price</th>
-					<th>Server Count</th>
-					<th>Ads</th>
+					<th>{{'PLAN_SELECTED' | translate}}</th>
+					<th>{{'PRICE' | translate}}</th>
+					<th>{{'SERVER_COUNT' | translate}}</th>
+					<th>{{'ADS' | translate}}</th>
 				</tr>
 				<tr>
 					<td>{{products[yourPlan-1].name}}</td>
-					<td>{{products[yourPlan-1].price}}€ /month</td>
+					<td>{{products[yourPlan-1].price}}€ /{{'MONTH' | translate}}</td>
 					<td>{{products[yourPlan-1].serverCount}}</td>
 					<td>{{products[yourPlan-1].ads}}</td>
 				</tr>
@@ -34,6 +40,9 @@
 		</div>
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.1/angular-translate.js"></script>
+		<script src="https://cdn.rawgit.com/SlexAxton/messageformat.js/0.2.2/messageformat.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate-interpolation-messageformat/2.8.1/angular-translate-interpolation-messageformat.js"></script>
 		<script type="text/javascript" src="controller.js"></script>
 	</body>
 </html>
