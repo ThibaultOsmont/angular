@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<title>Angular</title>
+
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div style="height:500px"></div>
+		<div class="container" class="form-group">
+			<label for="range">Note sur 10: </label>
+			<input id="range" ng-model="yourRange" type="range" min="0" max="10" value="5" step="1" ng-init="yourRange = 5"></input>
+		</div>	
+		<div class="container" ng-cloak>
+			<h1>Vous avez mis {{yourRange}}/10</h1>
+		</div>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	</body>
+</html>
